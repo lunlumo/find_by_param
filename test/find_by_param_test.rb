@@ -61,6 +61,9 @@ class FindByParamTest < Test::Unit::TestCase
     post = Post.create(:title=>"my awesome title!")
     assert_equal "my-awesome-title-1", post.to_param
     assert_equal post.permalink, post.to_param
+    post = Post.create(:title=>"my awesome title!")
+    assert_equal "my-awesome-title-2", post.to_param
+    assert_equal post.permalink, post.to_param
   end
   
   def test_should_record_not_found_error

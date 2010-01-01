@@ -66,9 +66,9 @@ module Railslove
             conditions       << self.send(self.class.primary_key.to_sym)
           end
           while self.class.count(:all, :conditions => conditions) > 0
-            permalink_value = "#{permalink_value}-#{counter += 1}"
-            conditions[1] = permalink_value
+            conditions[1] = "#{permalink_value}-#{counter += 1}"
           end
+          permalink_value = "#{permalink_value}-#{counter}" if counter > 0
           write_attribute(permalink_options[:field], permalink_value)
           true
         end
